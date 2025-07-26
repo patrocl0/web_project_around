@@ -1,3 +1,10 @@
 .page {
+  font-family: "Inter-Regular", "Inter-Black", "Inter-Medium";
+  font-weight: 400;
+  color: #ffffff;
   background-color: #000000;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
+/* Vector */

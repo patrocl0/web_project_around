@@ -1,0 +1,95 @@
+.profile {
+  max-width: 880px;
+  height: 120px;
+  padding: 45px 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+.profile-avatar {
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.profile-info__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-info__name {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.profile-info__name h2 {
+  font-size: 42px;
+  line-height: 48px;
+  margin: 0;
+}
+
+.profile-info__rol {
+  font-size: 18px;
+  line-height: auto;
+  margin: 0;
+}
+
+.profile-info__button {
+  content: "✍";
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-color: #000000;
+  border: 1px solid white;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.profile-info__button::before {
+  content: "✍"; /* Ícono de lápiz */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile-info__button:hover {
+  background-color: rgba(121, 121, 121, 0.295);
+}
+
+.profile-button {
+  content: "+";
+  position: relative;
+  width: 150px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 35px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.profile-button::before {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile-button:hover {
+  background-color: rgba(121, 121, 121, 0.295);
+}

@@ -1,12 +1,13 @@
 .header {
+  display: flex;
   max-width: 880px;
   height: 74px;
-  display: flex;
   flex-wrap: wrap;
+  margin: auto;
   padding: 45px 200px;
 }
 
-.header__line {
+.header-line {
   color: white;
   width: 880px;
 }
