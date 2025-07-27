@@ -8,6 +8,8 @@
 }
 
 .header-line {
-  color: white;
+  color: #545454;
+  align-items: center;
   width: 880px;
+  opacity: 70%;
 }

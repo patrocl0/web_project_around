@@ -1,0 +1,56 @@
+.gallery {
+  max-width: 880px;
+  margin: auto;
+  align-items: center;
+}
+
+.gallery-card {
+  display: grid;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 17px;
+}
+
+.card {
+  width: 282px;
+  height: 361px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  color: black;
+}
+
+.card img {
+  width: 100%;
+  height: 282px;
+  object-fit: cover;
+}
+
+.card__button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.card__button::before {
+  content: "❤️";
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.card__footer h3 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 900;
+}
