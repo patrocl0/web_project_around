@@ -13,7 +13,7 @@ Tecnologías utilizadas:
     JavasCript
 
 Enlace al proyecto:
-https://github.com/patrocl0/web_project_homeland.git
+https://github.com/patrocl0/web_project_around.git
 
 Autor:
 Brayan Stiven Mora Cardenas
