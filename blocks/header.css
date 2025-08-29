@@ -13,3 +13,33 @@
   width: 880px;
   opacity: 70%;
 }
+
+@media screen and (max-width: 1024px) {
+  .header {
+    padding: 45px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 30px 30px;
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .header {
+    padding: 28px 0px;
+  }
+  .header h1 {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    padding: 28px 0px;
+  }
+  .header h1 {
+    margin-left: 30px;
+  }
+}

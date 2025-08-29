@@ -1,7 +1,7 @@
 .footer {
   font-size: 14px;
   line-height: 16px;
-  max-width: 880px;
+  width: 880px;
   height: 74px;
   margin: auto;
   padding: 67px 0px 60px;
@@ -9,4 +9,28 @@
 
 .footer__text {
   color: #545454;
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    width: 880px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    width: 710px;
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .footer {
+    width: 484px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    width: 284px;
+  }
 }

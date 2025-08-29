@@ -1,11 +1,13 @@
 .profile {
-  max-width: 880px;
-  height: 120px;
-  padding: 45px 200px;
+  width: 880px;
+  height: auto;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .profile-avatar {
@@ -31,6 +33,13 @@
   display: flex;
   align-items: center;
   gap: 18px;
+}
+
+.profileName {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 400px;
 }
 
 .profile-info__name h2 {
@@ -92,4 +101,113 @@
 
 .profile-button:hover {
   background-color: rgba(121, 121, 121, 0.295);
+}
+
+@media screen and (max-width: 1024px) {
+  .profile {
+    width: 880px;
+    height: auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    width: 710px;
+    height: auto;
+    padding: 0;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-info {
+    flex-direction: column;
+  }
+
+  .profile-info__rol {
+    text-align: center;
+  }
+  .profile-button {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .profileName {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .profile {
+    width: 484px;
+    padding: 0;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile {
+    width: 282px;
+    padding: 0;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-info {
+    flex-direction: column;
+  }
+
+  .profile-info__rol {
+    text-align: center;
+    font-size: 14px;
+    line-height: auto;
+  }
+  .profile-button {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .profile-info__name h2 {
+    font-size: 22px;
+    line-height: auto;
+  }
+
+  .profileName {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 210px;
+  }
+
+  .profile-info__button {
+    width: 18px;
+    height: 18px;
+  }
+
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+  }
 }

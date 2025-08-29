@@ -30,20 +30,27 @@
 
             <div class="profile-info__text">
               <div class="profile-info__name">
-                <h2>Jacques Cousteau</h2>
-                <button type="button" class="profile-info__button"></button>
+                <h2 class="profileName" id="profileName">Jacques Cousteau</h2>
+                <button
+                  type="button"
+                  class="profile-info__button btn-open"
+                ></button>
               </div>
 
-              <p class="profile-info__rol">Explorador</p>
+              <p class="profile-info__rol" id="profileRole">Explorador</p>
             </div>
           </div>
-          <button type="button" class="profile-button"></button>
+          <button
+            type="button"
+            class="profile-button"
+            id="openPopupBtn"
+          ></button>
         </section>
 
         <section class="gallery">
           <ul class="gallery-card">
             <li class="card">
-              <img src="./images/image1.jpg" alt="" />
+              <img src="./images/image1.jpg" alt="imagen 1" />
 
               <div class="card__footer">
                 <h3>Valle de Yosemite</h3>
@@ -51,7 +58,7 @@
               </div>
             </li>
             <li class="card">
-              <img src="./images/image2.jpg" alt="" />
+              <img src="./images/image2.jpg" alt="imagen 2" />
 
               <div class="card__footer">
                 <h3>Lago Louise</h3>
@@ -59,7 +66,7 @@
               </div>
             </li>
             <li class="card">
-              <img src="./images/image3.jpg" alt="" />
+              <img src="./images/image3.jpg" alt="imagen 3" />
 
               <div class="card__footer">
                 <h3>Montañas Calvas</h3>
@@ -67,7 +74,7 @@
               </div>
             </li>
             <li class="card">
-              <img src="./images/image4.jpg" alt="" />
+              <img src="./images/image4.jpg" alt="imagen 4" />
 
               <div class="card__footer">
                 <h3>Latemar</h3>
@@ -75,7 +82,7 @@
               </div>
             </li>
             <li class="card">
-              <img src="./images/image5.jpg" alt="" />
+              <img src="./images/image5.jpg" alt="imagen 5" />
 
               <div class="card__footer">
                 <h3>Vanois National de la comuna 13</h3>
@@ -83,7 +90,7 @@
               </div>
             </li>
             <li class="card">
-              <img src="./images/image6.jpg" alt="" />
+              <img src="./images/image6.jpg" alt="imagen 6" />
 
               <div class="card__footer">
                 <h3>Lago di Braies</h3>
@@ -92,11 +99,36 @@
             </li>
           </ul>
         </section>
+
+        <section class="modal hidden">
+          <div class="popup__container">
+            <h2 class="modal__title">Editar Perfil</h2>
+            <button class="popup__close" id="btn-close">✖</button>
+            <form class="form__container" id="editForm">
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                id="nameInput"
+                required
+              />
+              <input
+                type="text"
+                placeholder="Acerca de mi"
+                id="roleInput"
+                required
+              />
+              <button class="btnSave" type="submit">Enviar</button>
+            </form>
+          </div>
+        </section>
+        <div class="overlay hidden"></div>
       </main>
 
       <footer class="footer">
         <p class="footer__text">© 2025. Stiven Mora</p>
       </footer>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 .gallery {
-  max-width: 880px;
+  width: 880px;
   margin: auto;
   align-items: center;
 }
@@ -53,4 +53,52 @@
   white-space: nowrap;
   overflow: hidden;
   font-weight: 900;
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  .gallery {
+    width: 710px;
+  }
+
+  .gallery-card {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px 15px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .gallery {
+    width: 484px;
+  }
+
+  .gallery-card {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .gallery {
+    width: 282px;
+  }
+
+  .gallery-card {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
 }
