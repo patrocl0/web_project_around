@@ -67,10 +67,14 @@ const addCard = (card) => {
   const title = document.createElement("h3");
   title.textContent = card.name;
 
-  const button = document.createElement("button");
-  button.type = "button";
-  button.classList.add("card__button");
-  button.setAttribute("aria-label", "Eliminar");
+  const buttonLike = document.createElement("button");
+  buttonLike.type = "button";
+  buttonLike.classList.add("card__button");
+  buttonLike.setAttribute("aria-label", "Me gusta");
+
+  const iconLike = document.createElement("i");
+  iconLike.classList.add("fa-regular", "fa-heart");
+  buttonLike.appendChild(iconLike);
 
   image.addEventListener("click", () => {
     openModal(templateImage, "large");
@@ -83,13 +87,25 @@ const addCard = (card) => {
     titleImage.textContent = card.name;
   });
 
-  buttonDelete.appendChild(icon);
-  footer.appendChild(title);
-  footer.appendChild(button);
-  cardElement.appendChild(buttonDelete);
-  cardElement.appendChild(image);
-  cardElement.appendChild(footer);
+  buttonLike.addEventListener("click", () => {
+    buttonLike.classList.toggle("liked");
+
+    if (buttonLike.classList.contains("liked")) {
+      iconLike.classList.remove("fa-regular");
+      iconLike.classList.add("fa-solid");
+    } else {
+      iconLike.classList.remove("fa-solid");
+      iconLike.classList.add("fa-regular");
+    }
+  });
+
   galleryCard.prepend(cardElement);
+  cardElement.appendChild(buttonDelete);
+  buttonDelete.appendChild(icon);
+  cardElement.appendChild(image);
+  footer.appendChild(title);
+  cardElement.appendChild(footer);
+  footer.appendChild(buttonLike);
   buttonDelete.addEventListener("click", () => {
     cardElement.remove();
 
