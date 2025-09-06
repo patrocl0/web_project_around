@@ -26,18 +26,20 @@ const initialCards = [
 ];
 
 const galleryCard = document.querySelector("#gallery-card");
-const modal = document.querySelector(".modal");
+const modal = document.querySelector(".modal--normal");
 const modalBody = document.querySelector("#modal-body");
-const modalCard = document.querySelector(".modal-card");
+const modalImage = document.querySelector(".modal-image");
 const overlay = document.querySelector(".overlay");
 const openModalBtn = document.querySelector(".btn-open");
 const openModalCardBtn = document.querySelector(".btn-open-card");
+
 const closeModalBtn = document.querySelector("#btn-close");
 
 const profileName = document.querySelector("#profileName");
 const profileRole = document.querySelector("#profileRole");
 
 const templateCard = document.querySelector("#template-new-card").content;
+const templateImage = document.querySelector("#image-template").content;
 const templateProfile = document.querySelector(
   "#template-edit-profile"
 ).content;
@@ -55,6 +57,7 @@ const addCard = (card) => {
   icon.classList.add("fa-solid", "fa-trash");
 
   const image = document.createElement("img");
+  image.classList.add("btn-open-image");
   image.src = card.link;
   image.alt = card.name;
 
@@ -68,6 +71,17 @@ const addCard = (card) => {
   button.type = "button";
   button.classList.add("card__button");
   button.setAttribute("aria-label", "Eliminar");
+
+  image.addEventListener("click", () => {
+    openModal(templateImage, "large");
+
+    const modalImage = modal.querySelector(".modal--large__image");
+    const titleImage = modal.querySelector(".modal--large__title");
+    closeModalBtn.classList.add("color__text");
+
+    modalImage.src = card.link;
+    titleImage.textContent = card.name;
+  });
 
   buttonDelete.appendChild(icon);
   footer.appendChild(title);
@@ -87,8 +101,18 @@ initialCards.forEach((card) => {
   addCard(card);
 });
 
-const openModal = function (templateContent) {
-  modal.classList.remove("hidden");
+const btnModalImage = document.querySelector(".btn-open-image");
+
+const openModal = function (templateContent, size) {
+  modal.classList.remove("modal--normal", "modal--large", "hidden");
+  modal.classList.add(`modal--${size}`);
+  overlay.classList.remove("hidden");
+
+  modalBody.replaceChildren(templateContent.cloneNode(true));
+};
+
+const openModalImage = () => {
+  modalImage.classList.remove("hidden");
   overlay.classList.remove("hidden");
 
   modalBody.replaceChildren(templateContent.cloneNode(true));
@@ -124,11 +148,12 @@ const guardarCard = function (e) {
 };
 
 openModalBtn.addEventListener("click", () => {
-  openModal(templateProfile);
+  openModal(templateProfile, "normal");
 
   const form = document.querySelector("#editForm");
   const nameInput = document.querySelector("#nameInput");
   const roleInput = document.querySelector("#roleInput");
+  closeModalBtn.classList.remove("color__text");
 
   nameInput.value = profileName.textContent;
   roleInput.value = profileRole.textContent;
@@ -136,13 +161,13 @@ openModalBtn.addEventListener("click", () => {
   form.addEventListener("submit", guardar);
 });
 openModalCardBtn.addEventListener("click", () => {
-  openModal(templateCard);
+  openModal(templateCard, "normal");
+
   const form = document.querySelector("#createCardForm");
+  closeModalBtn.classList.remove("color__text");
 
   form.addEventListener("submit", guardarCard);
 });
-
-console.log(initialCards);
 
 closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);

@@ -49,65 +49,11 @@
 
         <section class="gallery">
           <div class="gallery-card" id="gallery-card"></div>
-
-          <!-- <ul class="gallery-card" id="list-card"></ul> -->
-          <!-- <ul class="gallery-card">
-            <li class="card">
-              <img src="./images/image1.jpg" alt="imagen 1" />
-
-              <div class="card__footer">
-                <h3>Valle de Yosemite</h3>
-                <button type="button" class="card__button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/image2.jpg" alt="imagen 2" />
-
-              <div class="card__footer">
-                <h3>Lago Louise</h3>
-                <button type="button" class="card__button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/image3.jpg" alt="imagen 3" />
-
-              <div class="card__footer">
-                <h3>Montañas Calvas</h3>
-                <button type="button" class="card__button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/image4.jpg" alt="imagen 4" />
-
-              <div class="card__footer">
-                <h3>Latemar</h3>
-                <button type="button" class="card__button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/image5.jpg" alt="imagen 5" />
-
-              <div class="card__footer">
-                <h3>Vanois National de la comuna 13</h3>
-                <button type="button" class="card__button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img src="./images/image6.jpg" alt="imagen 6" />
-
-              <div class="card__footer">
-                <h3>Lago di Braies</h3>
-                <button type="button" class="card__button"></button>
-              </div>
-            </li>
-          </ul> -->
         </section>
 
-        <section class="modal hidden">
-          <div class="modal__container">
-            <button class="modal__close" id="btn-close">✖</button>
-            <div class="modal__body" id="modal-body"></div>
-          </div>
+        <section class="modal--normal modal--large hidden" id="modal">
+          <button class="modal__close" id="btn-close">✖</button>
+          <div class="modal__body" id="modal-body"></div>
         </section>
 
         <div class="overlay hidden"></div>
@@ -132,7 +78,7 @@
         </template>
 
         <template id="template-new-card">
-          <h2 class="modal__title">Nueva tarjeta</h2>
+          <h2 class="modal__title">Nueva lugar</h2>
 
           <form class="form" id="createCardForm">
             <input type="text" placeholder="Título" id="titleInput" />
@@ -143,6 +89,11 @@
             />
             <button class="btnSave" type="submit">Crear</button>
           </form>
+        </template>
+
+        <template id="image-template">
+          <img src="" alt="" class="modal--large__image" />
+          <h3 class="modal--large__title"></h3>
         </template>
       </main>
 
