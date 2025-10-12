@@ -1,3 +1,5 @@
+import { enableValidation } from "./validate.js";
+
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -147,27 +149,110 @@ const guardarCard = function (e) {
   closeModal();
 };
 
+// const showInputError = (formElement, inputElement, errorMessage, config) => {
+//   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+//   inputElement.classList.add(config.inputErrorClass);
+//   errorElement.textContent = errorMessage;
+//   errorElement.classList.add(config.errorClass);
+// };
+
+// const hideInputError = (formElement, inputElement, config) => {
+//   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+//   inputElement.classList.remove(config.inputErrorClass);
+//   errorElement.textContent = "";
+//   errorElement.classList.remove(config.errorClass);
+// };
+
+// const checkInputValidity = (formElement, inputElement, config) => {
+//   if (!inputElement.validity.valid) {
+//     showInputError(
+//       formElement,
+//       inputElement,
+//       inputElement.validationMessage,
+//       config
+//     );
+//   } else {
+//     hideInputError(formElement, inputElement, config);
+//   }
+// };
+
+// const hasInvalidInput = (inputList) => {
+//   return inputList.some((inputElement) => !inputElement.validity.valid);
+// };
+
+// const toggleButtonState = (inputList, buttonElement, config) => {
+//   if (hasInvalidInput(inputList)) {
+//     buttonElement.classList.add(config.inactiveButtonClass);
+//     buttonElement.disabled = true;
+//   } else {
+//     buttonElement.classList.remove(config.inactiveButtonClass);
+//     buttonElement.disabled = false;
+//   }
+// };
+
+// const setEventListeners = (formElement, config) => {
+//   const inputList = Array.from(
+//     formElement.querySelectorAll(config.inputSelector)
+//   );
+//   const buttonElement = formElement.querySelector(config.submitButtonSelector);
+
+//   toggleButtonState(inputList, buttonElement, config);
+
+//   inputList.forEach((inputElement) => {
+//     inputElement.addEventListener("input", () => {
+//       checkInputValidity(formElement, inputElement, config);
+//       toggleButtonState(inputList, buttonElement, config);
+//     });
+//   });
+// };
+
+// const enableValidation = (config) => {
+//   const formList = Array.from(document.querySelectorAll(config.formSelector));
+
+//   formList.forEach((formElement) => {
+//     formElement.addEventListener("submit", (evt) => evt.preventDefault());
+//     setEventListeners(formElement, config);
+//   });
+// };
+
+const validationConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
 openModalBtn.addEventListener("click", () => {
   openModal(templateProfile, "normal");
-
   const form = document.querySelector("#editForm");
   const nameInput = document.querySelector("#nameInput");
   const roleInput = document.querySelector("#roleInput");
-  closeModalBtn.classList.remove("color__text");
 
+  closeModalBtn.classList.remove("color__text");
   nameInput.value = profileName.textContent;
   roleInput.value = profileRole.textContent;
 
   form.addEventListener("submit", guardar);
+
+  enableValidation(validationConfig);
 });
 openModalCardBtn.addEventListener("click", () => {
   openModal(templateCard, "normal");
 
   const form = document.querySelector("#createCardForm");
-  closeModalBtn.classList.remove("color__text");
 
+  closeModalBtn.classList.remove("color__text");
   form.addEventListener("submit", guardarCard);
+  enableValidation(validationConfig);
 });
 
 closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});

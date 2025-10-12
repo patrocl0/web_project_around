@@ -60,34 +60,64 @@
 
         <template id="template-edit-profile">
           <h2 class="modal__title">Editar Perfil</h2>
-          <form class="form" id="editForm">
+          <form class="popup__form" id="editForm" novalidate>
             <input
-              type="text"
-              placeholder="Tu nombre"
               id="nameInput"
-              required
-            />
-            <input
+              class="popup__input"
               type="text"
-              placeholder="Acerca de mi"
-              id="roleInput"
+              minlength="2"
+              maxlength="40"
               required
             />
-            <button class="btnSave" type="submit">Enviar</button>
+            <span id="nameInput-error" class="popup__error"></span>
+            <input
+              id="roleInput"
+              class="popup__input"
+              type="text"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span id="roleInput-error" class="popup__error"></span>
+            <button
+              type="submit"
+              class="popup__button popup__button_disabled"
+              disabled
+            >
+              Guardar
+            </button>
           </form>
         </template>
 
         <template id="template-new-card">
           <h2 class="modal__title">Nueva lugar</h2>
 
-          <form class="form" id="createCardForm">
-            <input type="text" placeholder="Título" id="titleInput" />
+          <form class="popup__form" id="createCardForm" novalidate>
             <input
+              id="titleInput"
+              class="popup__input"
               type="text"
-              placeholder="Enlace a la imagen"
-              id="linkInput"
+              minlength="2"
+              maxlength="40"
+              required
             />
-            <button class="btnSave" type="submit">Crear</button>
+            <span id="titleInput-error" class="popup__error"></span>
+            <input
+              id="linkInput"
+              class="popup__input"
+              type="url"
+              required
+              placeholder="https://ejemplo.com"
+            />
+            <span id="linkInput-error" class="popup__error"></span>
+
+            <button
+              type="submit"
+              class="popup__button popup__button_disabled"
+              disabled
+            >
+              Crear
+            </button>
           </form>
         </template>
 
@@ -102,6 +132,6 @@
       </footer>
     </div>
 
-    <script src="scripts/index.js"></script>
+    <script type="module" src="scripts/index.js"></script>
   </body>
 </html>
