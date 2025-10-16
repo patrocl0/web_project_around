@@ -1,7 +1,6 @@
 const modal = document.querySelector(".modal--normal");
 const modalBody = document.querySelector("#modal-body");
 const overlay = document.querySelector(".overlay");
-const closeModalBtn = document.querySelector("#btn-close");
 
 let activeModal = null;
 
