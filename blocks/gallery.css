@@ -23,6 +23,11 @@
   position: relative;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   color: black;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
 }
 
 .card__delete {
@@ -42,15 +47,52 @@
   cursor: pointer;
 }
 
-.card__button {
+/* .card__button {
   background: none;
   border: none;
   font-size: 20px;
   cursor: pointer;
+} */
+
+.card__like-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: gray;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.card__like-button--active {
+  color: red;
+}
+
+.card__like-button--active i {
+  animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.card__like-button:hover {
+  transform: scale(1.2);
 }
 
 .card__button::before {
   content: "❤️";
+}
+
+.card__button--active {
+  color: red; /* cambia el color del corazón */
 }
 
 .card__footer {
