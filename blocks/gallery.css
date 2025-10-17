@@ -87,8 +87,6 @@
   transform: scale(1.2);
 }
 
-<<<<<<< HEAD
-=======
 .card__button::before {
   content: "❤️";
 }
@@ -97,7 +95,6 @@
   color: red; /* cambia el color del corazón */
 }
 
->>>>>>> develop
 .card__footer {
   display: flex;
   justify-content: space-between;
