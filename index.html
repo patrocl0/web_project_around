@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
   </head>
   <body>
@@ -25,70 +25,134 @@
 
       <main class="content">
         <section class="profile">
-          <div class="profile-info">
+          <div class="profile__info">
             <img
               src="./images/avatar.jpg"
               alt="image profile"
-              class="profile-avatar"
+              class="profile__avatar"
             />
 
-            <div class="profile-info__text">
-              <div class="profile-info__name">
-                <h2 class="profileName" id="profileName">Jacques Cousteau</h2>
+            <div class="profile__text">
+              <div class="profile__name-container">
+                <h2 class="profile__name" id="profileName">Jacques Cousteau</h2>
                 <button
                   type="button"
-                  class="profile-info__button btn-open"
+                  class="profile__edit-button btn-open"
                 ></button>
               </div>
 
-              <p class="profile-info__rol" id="profileRole">Explorador</p>
+              <p class="profile__role" id="profileRole">Explorador</p>
             </div>
           </div>
-          <button type="button" class="profile-button btn-open-card"></button>
+          <button
+            type="button"
+            class="profile__add-button btn-open-card"
+          ></button>
         </section>
 
         <section class="gallery">
           <div class="gallery-card" id="gallery-card"></div>
         </section>
 
-        <section class="modal--normal modal--large hidden" id="modal">
-          <button class="modal__close" id="btn-close">✖</button>
-          <div class="modal__body" id="modal-body"></div>
-        </section>
-
         <div class="overlay hidden"></div>
 
-        <template id="template-edit-profile">
-          <h2 class="modal__title">Editar Perfil</h2>
-          <form class="popup__form" id="editForm" novalidate>
-            <input
-              id="nameInput"
-              class="popup__input"
-              type="text"
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <span id="nameInput-error" class="popup__error"></span>
-            <input
-              id="roleInput"
-              class="popup__input"
-              type="text"
-              minlength="2"
-              maxlength="200"
-              required
-            />
-            <span id="roleInput-error" class="popup__error"></span>
-            <button
-              type="submit"
-              class="popup__button popup__button_disabled"
-              disabled
-            >
-              Guardar
+        <template id="card-template">
+          <div class="card">
+            <button class="card__delete" aria-label="Eliminar tarjeta">
+              <i class="fa-solid fa-trash"></i>
             </button>
-          </form>
+            <img class="card__image" src="" alt="" />
+            <div class="card__info">
+              <h3 class="card__title"></h3>
+
+              <button class="card__like-button" type="button">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+          </div>
         </template>
 
+        <div class="popup popup_type_image">
+          <div class="popup__container popup__container_type_image">
+            <button class="popup__close">
+              <i class="popup__close-button fa-solid fa-x"></i>
+            </button>
+            <img class="popup__image" src="#" alt="#" />
+            <p class="popup__caption"></p>
+          </div>
+        </div>
+
+        <div class="popup popup_type_edit-profile">
+          <div class="popup__container">
+            <button class="popup__close">
+              <i class="popup__close-button fa-solid fa-x"></i>
+            </button>
+            <h2 class="popup__title">Editar perfil</h2>
+            <form
+              class="popup__form popup__form_type_edit-profile"
+              id="form-edit-profile"
+              novalidate
+            >
+              <input
+                id="nameInput"
+                class="popup__input"
+                type="text"
+                name="name"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span class="popup__error" id="nameInput-error"></span>
+              <input
+                id="roleInput"
+                class="popup__input"
+                type="text"
+                name="about"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <span class="popup__error" id="roleInput-error"></span>
+              <button class="popup__save-button" type="submit">Guardar</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="popup popup_type_add-card">
+          <div class="popup__container">
+            <button class="popup__close">
+              <i class="popup__close-button fa-solid fa-x"></i>
+            </button>
+            <h2 class="popup__title">Nuevo lugar</h2>
+            <form
+              class="popup__form popup__form_type_add-card"
+              id="form-add-card"
+              novalidate
+            >
+              <input
+                id="titleInput"
+                class="popup__input"
+                type="text"
+                name="title"
+                placeholder="Título"
+                minlength="2"
+                maxlength="30"
+                required
+              />
+              <span class="popup__error" id="titleInput-error"></span>
+              <input
+                id="linkInput"
+                class="popup__input"
+                type="url"
+                name="link"
+                placeholder="Enlace de la imagen"
+                required
+              />
+              <span class="popup__error" id="linkInput-error"></span>
+              <button class="popup__save-button" type="submit">Crear</button>
+            </form>
+          </div>
+        </div>
         <template id="template-new-card">
           <h2 class="modal__title">Nueva lugar</h2>
 
