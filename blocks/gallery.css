@@ -16,7 +16,7 @@
 
 .card {
   width: 282px;
-  height: 361px;
+  height: auto;
   background: white;
   border-radius: 10px;
   overflow: hidden;
@@ -47,13 +47,6 @@
   cursor: pointer;
 }
 
-/* .card__button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-} */
-
 .card__like-button {
   background: none;
   border: none;
@@ -63,11 +56,11 @@
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.card__like-button--active {
+.card__like-button_active {
   color: red;
 }
 
-.card__like-button--active i {
+.card__like-button_active i {
   animation: pop 0.25s ease;
 }
 
@@ -95,13 +88,13 @@
   color: red; /* cambia el color del corazón */
 }
 
-.card__footer {
+.card__info {
   display: flex;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: 0px 15px;
 }
 
-.card__footer h3 {
+.card__info h3 {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

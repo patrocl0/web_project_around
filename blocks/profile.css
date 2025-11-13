@@ -10,51 +10,51 @@
   margin-bottom: 30px;
 }
 
-.profile-avatar {
+.profile__avatar {
   border-radius: 50%;
   width: 128px;
   height: 128px;
   object-fit: cover;
 }
 
-.profile-info {
+.profile__info {
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-.profile-info__text {
+.profile__text {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.profile-info__name {
+.profile__name-container {
   display: flex;
   align-items: center;
   gap: 18px;
 }
 
-.profileName {
+.profile__name {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   width: 400px;
 }
 
-.profile-info__name h2 {
+.profile__name-container h2 {
   font-size: 42px;
   line-height: 48px;
   margin: 0;
 }
 
-.profile-info__rol {
+.profile__role {
   font-size: 18px;
   line-height: auto;
   margin: 0;
 }
 
-.profile-info__button {
+.profile__edit-button {
   content: "✍";
   position: relative;
   width: 24px;
@@ -66,7 +66,7 @@
   cursor: pointer;
 }
 
-.profile-info__button::before {
+.profile__edit-button::before {
   content: "✍"; /* Ícono de lápiz */
   position: absolute;
   top: 50%;
@@ -74,11 +74,11 @@
   transform: translate(-50%, -50%);
 }
 
-.profile-info__button:hover {
+.profile__edit-button:hover {
   background-color: rgba(121, 121, 121, 0.295);
 }
 
-.profile-button {
+.profile__add-button {
   content: "+";
   position: relative;
   width: 150px;
@@ -91,7 +91,7 @@
   cursor: pointer;
 }
 
-.profile-button::before {
+.profile__add-button::before {
   content: "+";
   position: absolute;
   top: 50%;
@@ -99,7 +99,7 @@
   transform: translate(-50%, -50%);
 }
 
-.profile-button:hover {
+.profile__add-button:hover {
   background-color: rgba(121, 121, 121, 0.295);
 }
 
@@ -131,19 +131,19 @@
     align-items: center;
   }
 
-  .profile-info {
+  .profile__info {
     flex-direction: column;
   }
 
-  .profile-info__rol {
+  .profile__role {
     text-align: center;
   }
-  .profile-button {
+  .profile__add-button {
     width: 100%;
     margin-top: 20px;
   }
 
-  .profileName {
+  .profile__name {
     text-align: center;
   }
 }
@@ -151,14 +151,18 @@
 @media screen and (max-width: 544px) {
   .profile {
     width: 484px;
-    padding: 0;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
+  }
+
+  .profile__name-container h2 {
+    font-size: 30px;
+  }
+
+  .profile__info {
+    width: 100%;
+  }
+
+  .profile__name {
+    width: 100%;
   }
 }
 
@@ -175,38 +179,38 @@
     align-items: center;
   }
 
-  .profile-info {
+  .profile__info {
     flex-direction: column;
   }
 
-  .profile-info__rol {
+  .profile__role {
     text-align: center;
     font-size: 14px;
     line-height: auto;
   }
-  .profile-button {
+  .profile__add-button {
     width: 100%;
     margin-top: 20px;
   }
 
-  .profile-info__name h2 {
+  .profile__name-container h2 {
     font-size: 22px;
     line-height: auto;
   }
 
-  .profileName {
+  .profile__name {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     width: 210px;
   }
 
-  .profile-info__button {
+  .profile__edit-button {
     width: 18px;
     height: 18px;
   }
 
-  .profile-avatar {
+  .profile__avatar {
     width: 120px;
     height: 120px;
   }
