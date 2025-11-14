@@ -4,6 +4,7 @@ import { Section } from "./components/Section.js";
 import { PopupWithImage } from "./components/PopupWithImage.js";
 import { PopupWithForm } from "./components/PopupWithForm.js";
 import { UserInfo } from "./components/UserInfo.js";
+import Api from "./components/Api.js";
 
 const initialCards = [
   {
@@ -32,6 +33,14 @@ const initialCards = [
   },
 ];
 
+const api = new Api({
+  baseUrl: "https://around-api.es.tripleten-services.com/v1",
+  headers: {
+    authorization: "3a5671ca-7742-4269-b748-d908d71db785",
+    "Content-Type": "application/json",
+  },
+});
+
 const userInfo = new UserInfo({
   nameSelector: "#profileName",
   roleSelector: "#profileRole",
@@ -49,7 +58,7 @@ function createCard(data) {
 
 const cardSection = new Section(
   {
-    items: initialCards,
+    items: [],
     renderer: (data) => {
       const cardElement = createCard(data);
       cardSection.addItem(cardElement);
@@ -57,7 +66,14 @@ const cardSection = new Section(
   },
   ".gallery-card"
 );
-cardSection.renderItems();
+
+api
+  .getInitialCards()
+  .then((cards) => {
+    cardSection._items = cards;
+    cardSection.renderItems(cards);
+  })
+  .catch((err) => console.log("Error cargando tarjetas:", err));
 
 const popupEditProfile = new PopupWithForm(
   ".popup_type_edit-profile",
