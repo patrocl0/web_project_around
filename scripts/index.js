@@ -34,7 +34,7 @@ function createCard(data) {
     data,
     "#card-template",
     {
-      handleCardClick: ({ name, link }) => popupImage.open(name, link),
+      handleCardClick: (name, link) => popupImage.open(name, link),
       handleDelete: () => {
         popupConfirm.setSubmitAction(() => {
           console.log(data);
