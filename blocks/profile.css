@@ -15,9 +15,36 @@
   width: 128px;
   height: 128px;
   object-fit: cover;
+  display: block;
+}
+
+.profile__avatar-edit {
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile__avatar-edit:hover {
+  opacity: 1;
+}
+
+.profile__avatar-edit i {
+  font-size: 16px;
 }
 
 .profile__info {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 30px;

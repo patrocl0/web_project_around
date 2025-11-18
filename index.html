@@ -32,6 +32,10 @@
               class="profile__avatar"
             />
 
+            <button class="profile__avatar-edit">
+              <i class="fa-solid fa-pencil"></i>
+            </button>
+
             <div class="profile__text">
               <div class="profile__name-container">
                 <h2 class="profile__name" id="profileName">Jacques Cousteau</h2>
@@ -153,42 +157,42 @@
             </form>
           </div>
         </div>
-        <template id="template-new-card">
-          <h2 class="modal__title">Nueva lugar</h2>
 
-          <form class="popup__form" id="createCardForm" novalidate>
-            <input
-              id="titleInput"
-              class="popup__input"
-              type="text"
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <span id="titleInput-error" class="popup__error"></span>
-            <input
-              id="linkInput"
-              class="popup__input"
-              type="url"
-              required
-              placeholder="https://ejemplo.com"
-            />
-            <span id="linkInput-error" class="popup__error"></span>
-
-            <button
-              type="submit"
-              class="popup__button popup__button_disabled"
-              disabled
-            >
-              Crear
+        <div class="popup popup_type_confirm">
+          <div class="popup__container">
+            <button class="popup__close">
+              <i class="popup__close-button fa-solid fa-x"></i>
             </button>
-          </form>
-        </template>
+            <h2 class="popup__title">¿Estás seguro/a?</h2>
+            <button class="popup__save-button popup__confirm-button">Sí</button>
+          </div>
+        </div>
 
-        <template id="image-template">
-          <img src="" alt="" class="modal--large__image" />
-          <h3 class="modal--large__title"></h3>
-        </template>
+        <div class="popup popup_edit_avatar">
+          <div class="popup__container">
+            <button class="popup__close">
+              <i class="popup__close-button fa-solid fa-x"></i>
+            </button>
+            <h2 class="popup__title">Cambiar foto de perfil</h2>
+            <form
+              class="popup__form popup__form_type_edit-avatar"
+              id="form-edit-avatar"
+              novalidate
+            >
+              <input
+                id="avatarLinkInput"
+                class="popup__input"
+                type="url"
+                name="avatar"
+                placeholder="Enlace de la imagen"
+                required
+              />
+              <span class="popup__error" id="avatarLinkInput-error"></span>
+
+              <button class="popup__save-button" type="submit">Guardar</button>
+            </form>
+          </div>
+        </div>
       </main>
 
       <footer class="footer">

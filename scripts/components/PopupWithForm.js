@@ -9,12 +9,11 @@ export class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
-    console.log("entrooo");
-
     const formValues = {};
     this._inputList.forEach((input) => {
       formValues[input.name] = input.value;
     });
+
     return formValues;
   }
 
@@ -27,6 +26,15 @@ export class PopupWithForm extends Popup {
     });
   }
 
+  renderLoading(isLoading) {
+    const button = this._form.querySelector(".popup__save-button");
+    if (isLoading) {
+      this._defaultText = button.textContent;
+      button.textContent = "Guardando...";
+    } else {
+      button.textContent = this._defaultText;
+    }
+  }
   close() {
     super.close();
     this._form.reset();
